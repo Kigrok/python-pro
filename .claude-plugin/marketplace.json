@@ -1,0 +1,15 @@
+{
+  "name": "python-pro-dev",
+  "description": "Local development marketplace hosting the python-pro plugin.",
+  "owner": {
+    "name": "Kigrok",
+    "url": "https://github.com/Kigrok"
+  },
+  "plugins": [
+    {
+      "name": "python-pro",
+      "source": "./",
+      "description": "Production Python 3.11+ standard: 8-linter pipeline, AST rule validator, lint-on-edit hook, skill auto-detection, and an MCP server."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "typeCheckingMode": "standard",
+  "pythonVersion": "3.11",
+  "venvPath": ".",
+  "venv": ".venv",
+  "exclude": [".venv", "__pycache__", "graphify-out", ".git"],
+  "reportMissingTypeStubs": false,
+  "reportMissingImports": false
+}

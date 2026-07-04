@@ -1,0 +1,35 @@
+{
+  "name": "python-pro",
+  "displayName": "Python Pro",
+  "version": "0.0.1",
+  "description": "Enforce a production Python 3.11+ standard: stdlib-first dependency discipline (and secure, low-level, fast, async third-party picks when stdlib won't do), a live LSP that pushes standard violations into the editor and the agent loop, an 8-linter pipeline, an AST rule validator, security and complexity scanners, conformant scaffolding, a token-frugal code-outline tool, pytest running, skill auto-detection, context-injecting hooks, and task-focused subagents, exposed as an MCP server.",
+  "author": {
+    "name": "Kigrok",
+    "url": "https://github.com/Kigrok"
+  },
+  "homepage": "https://github.com/Kigrok/python-pro",
+  "repository": "https://github.com/Kigrok/python-pro",
+  "license": "MIT",
+  "keywords": [
+    "python",
+    "lsp",
+    "linting",
+    "type-checking",
+    "ruff",
+    "mypy",
+    "fastapi",
+    "asyncio",
+    "pytest",
+    "security",
+    "scaffolding",
+    "stdlib",
+    "code-quality",
+    "subagents"
+  ],
+  "mcpServers": {
+    "python-pro": {
+      "type": "stdio",
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/run-mcp.sh"
+    }
+  }
+}

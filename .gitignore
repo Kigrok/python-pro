@@ -1,0 +1,18 @@
+# python-pro
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.DS_Store
+
+# runtime learning data (machine-specific)
+memory/patterns.json
+
+# local dev caches / build artifacts (not part of the plugin)
+graphify-out/
+*.egg-info/
+build/
+dist/

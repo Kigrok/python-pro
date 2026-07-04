@@ -1,0 +1,54 @@
+---
+description: "Python 3.11+ production standard — strict typing, __slots__, exact-name imports, security"
+---
+
+# Windsurf Python Rules
+
+## Import Rules
+
+- ALWAYS: `from json import loads` NOT `import json`
+- ALWAYS: `from asyncio import run` NOT `import asyncio`
+- ALWAYS: `from os import environ` NOT `import os`
+- ALL imports at top of file — NO inline imports
+- Import order: stdlib → third-party → local
+
+## Type Rules
+
+- NO `Any` type — use `object` if unconstrained
+- NO `Optional[X]` — use `X | None`
+- Annotations on EVERYTHING: `x: int = 1`, `def f(x: str) -> int:`
+- `ClassVar[int]` for class constants
+
+## Class Rules
+
+- `__slots__` on ALL classes
+- `dataclass(slots=True)` for data containers
+- `match/case` over `if/elif` for 3+ branches
+
+## Style Rules
+
+- Shebang + path comment on every file: `#!/usr/bin/env python3` / `# file.py — desc.`
+- `from __future__ import annotations` at top
+- 88 char max line length
+- `is None` / `is not None` — never `== None`
+- `if flag:` — never `== True`
+- No mutable defaults: `def f(x=[])` → `def f(x: list[str] | None = None):`
+
+## Security Rules
+
+- NEVER `eval` / `exec` / `shell=True`
+- NEVER `pickle.loads` on untrusted data
+- Use `secrets` for tokens, `hashlib.sha256+` for hashing
+- Parameterised SQL only
+
+## Testing
+
+- `pytest` + `pytest-asyncio`
+- Test boundary inputs: empty, None, wrong type
+
+## Key Files
+
+- `skills/python-pro/SKILL.md` — full rule set
+- `ruff.toml` — linter config
+- `mypy.ini` — type checking config
+- `cli/` — core package

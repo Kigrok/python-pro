@@ -1,0 +1,24 @@
+line-length = 88
+target-version = "py311"
+
+[lint]
+select = [
+    "E", "F", "I", "UP", "B", "SIM",
+    "C4", "RUF", "PERF", "PIE", "FURB", "RET", "PTH", "TID", "BLE",
+]
+# PERF401 pushes list-comprehensions over append-loops; for multi-line f-string
+# report builders an explicit append loop reads better, so silence just that one.
+ignore = ["PERF401"]
+
+[lint.per-file-ignores]
+# Hook/git scripts bootstrap sys.path before importing the plugin packages.
+"hooks/post_edit.py" = ["E402"]
+"hooks/pre_commit.py" = ["E402"]
+"hooks/session_start.py" = ["E402"]
+"hooks/user_prompt.py" = ["E402"]
+# runtime.py executes arbitrary user code and must capture any failure it raises;
+# a blind `except Exception` boundary is intentional there.
+"cli/runtime.py" = ["BLE001"]
+# pre_commit.py is a best-effort fixer: it runs many external tools and codemods and
+# records whatever each one raises into result.errors — a broad boundary is intentional.
+"cli/pre_commit.py" = ["BLE001"]

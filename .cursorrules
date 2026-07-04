@@ -1,0 +1,56 @@
+---
+description: "Production Python 3.11+ standard — strict typing, __slots__, exact-name imports, match/case, security hygiene"
+---
+
+# Python Pro Rules
+
+## BANNED — Never generate these
+
+- `import json` / `import asyncio` / `import os` — ALWAYS: `from json import loads`, `from asyncio import run`, `from os import environ`
+- `from typing import Any` / `Optional` — use `str | None` for nullable, precise types otherwise
+- `import x` (full module imports) — always `from x import y` (exact names)
+- `== None` / `== True` — use `is None` / `is True` or truthiness
+- `except:` / `except Exception:` — catch specific exceptions
+- `def f(x=[])` — mutable default args, use `None` + in-body init
+- `eval` / `exec` / `shell=True` / `pickle.loads` on untrusted data
+- `assert` outside tests — `-O` strips it, raise explicitly instead
+
+## REQUIRED — Always generate these
+
+- Shebang + path comment on every `.py` file: `#!/usr/bin/env python3` / `# filename.py — description.`
+- `from __future__ import annotations` at top
+- Type annotations on ALL variables, parameters, returns: `x: int = 1`, `def f(x: str) -> int:`
+- `__slots__` on ALL classes: `class Foo: __slots__ = ("x",)`
+- `match/case` over `if/elif` for 3+ branches
+- `ClassVar` for class constants, `UPPER_SNAKE_CASE` for module constants
+- Docstrings: one-line imperative on public API only (PEP 257)
+- `dataclass(slots=True)` for data containers
+- `is None` / `is not None` — never `==` comparison for None
+
+## Style
+
+- 88 char max line length
+- `snake_case` for functions/vars, `PascalCase` for classes
+- Acronyms fully capped: `HTTPClient`, not `HttpClient`
+- `pathlib` over `os.path`
+- Imports: stdlib → third-party → local (blank-line separated)
+- No wildcard `from x import *`
+
+## Security
+
+- `secrets` (not `random`) for tokens
+- `hashlib.sha256+` (never `md5`/`sha1`) for security hashing
+- Parameterised SQL only — no f-string queries
+- `tempfile.mkstemp` (never `mktemp`)
+- No hardcoded paths — use `Path(__file__).parent`
+
+## Testing
+
+- `pytest` + `pytest-asyncio`
+- Test every public function against empty/None/wrong-type/boundary inputs
+
+## Architecture
+
+- `cli/` — single core powering CLI, MCP server, and hooks
+- Pipeline: codemods → ruff --fix → black → lint → validator → security → complexity
+- `skills/*.md` — rule data, not loadable skills
