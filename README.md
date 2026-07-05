@@ -13,8 +13,16 @@
 <br>
 
 <img src="https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.11+">
-<img src="https://img.shields.io/badge/version-0.0.1-success?style=for-the-badge" alt="v0.0.1">
 <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="MIT">
+<a href="https://github.com/Kigrok/python-pro/stargazers"><img src="https://img.shields.io/github/stars/Kigrok/python-pro?style=for-the-badge&logo=github&color=f1c40f" alt="GitHub stars"></a>
+
+<br>
+
+<a href="https://github.com/Kigrok/python-pro/releases/latest"><img src="https://img.shields.io/github/v/release/Kigrok/python-pro?style=flat-square&logo=github&color=success&label=release" alt="Latest release"></a>
+<a href="https://github.com/Kigrok/python-pro/releases"><img src="https://img.shields.io/github/downloads/Kigrok/python-pro/total?style=flat-square&logo=github&label=downloads&color=blue" alt="Downloads"></a>
+<a href="https://github.com/Kigrok/python-pro/network/members"><img src="https://img.shields.io/github/forks/Kigrok/python-pro?style=flat-square&logo=github&label=forks" alt="Forks"></a>
+<a href="https://github.com/Kigrok/python-pro/issues"><img src="https://img.shields.io/github/issues/Kigrok/python-pro?style=flat-square&logo=github&label=issues" alt="Issues"></a>
+<img src="https://img.shields.io/github/last-commit/Kigrok/python-pro?style=flat-square&logo=github&label=last%20commit" alt="Last commit">
 
 <br>
 
